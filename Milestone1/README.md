@@ -1,5 +1,5 @@
 # Milestone 1, 22 Desember 2025
-Bahas-bahas sensor jarak yang lebih optimal dari HC-SR04 dan aktuator Servo
+Bahas-bahas sensor jarak yang lebih optimal dari HC-SR04 dan gerakin aktuator berupa Servo.
 
 ## Pertanyaan Target Pencapaian Hari Ini
 ### `1. Ada pin apa saja di servo yang digunakan?`
