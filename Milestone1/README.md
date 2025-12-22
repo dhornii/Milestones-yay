@@ -34,4 +34,4 @@ Dijalankan setelah kode Arduino IDE selesai upload (matikan Serial Monitor jika 
 - Buat fungsi untuk menerima masukan angka lalu dirubah ke string. String ini akan dikodekan melalui `.encode()` agar bisa menjadi simbol sebelum dikirimkan ke Serial milik mikrokontroler `baris 10-12`
 - Loop terus sambil minta ke user buat nulis ke terminal mau putar sudut servo berapa derajat `baris 14-18`
 
-  Tambahan informasi kalau kodenya adalah unicode serta kalau dibalik kiriman dari mikon ke program python itu bisa didecode pakai utf-8.
+  #### Tambahan informasi kalau hasil encode itu jadi unicode serta kalau dibalik kirimannya dari mikon ke program python itu bisa didecode pakai utf-8 buat pulihin informasi.
