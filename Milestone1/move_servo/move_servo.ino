@@ -1,12 +1,12 @@
 #include <ESP32Servo.h>
 
 Servo servo;
-int pin = 18;
+int pin_servo = 18;
 
 void setup() {
   Serial.begin(115200);
   
-  servo.attach(pin);
+  servo.attach(pin_servo);
 }
 
 void loop() {
@@ -14,7 +14,7 @@ void loop() {
     int angle = Serial.parseInt();
 
     if (angle >= 0 && angle <= 180) {
-      myServo.write(angle);
+      servo.write(angle);
     }
 
     while(Serial.available() > 0) {
