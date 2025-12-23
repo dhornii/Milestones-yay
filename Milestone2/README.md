@@ -34,7 +34,7 @@ itu secara bebas. Jadi kayak ada yang setor informasi terus ke topic, terus info
 Tipe lain yang bisa terjadi dalam komunikasi jaringan ROS2 di mana akan ada 2 node, satu bertindak sebagai pengirim dan satunya sebagai klien. Klien akan minta (*request*) informasi tertentu dan akan
 menunggu respon dari pihak satunya di service tersebut. Bisa kayak request hasil programnya misal ada input tertentu, nah nanti akan dikirimkan outputnya ke klien tersebut.
 
-### `4. Kenapa ROS2, Apa Keunggulannya?`
+### `4. Kenapa ROS2?, Apa Keunggulannya?`
 
 Dengan pakai *framework* dari ROS2 ini, sekumpulan program yang saling bergantung datanya bisa **`diintegrasikan serta berjalan bersamaan`**. Kalau beberapa program misal kayak pengambil data lewat sensor, pengolah 
 data tersebut, terus fungsi buat ngasih respon semuanya berada di satu program sama itu akal dieksekusi secara sekuensial (urut), hasilnya adalah robot bisa jadi kurang responsif pada pengambilan keputusan
