@@ -1,0 +1,2 @@
+[console_scripts]
+led_in = mikon_led_package.main:main
