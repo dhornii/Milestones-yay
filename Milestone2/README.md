@@ -1,6 +1,8 @@
 # Milestone 2, 23 Desember 2025
 Bahas-bahas Python dan ROS2 sekalian sampe coba turtlesimnya ros2.
 
+Hasil hari ini ada package python sama sudah buat virtual environtment.
+
 ## Pertanyaan Target Pencapaian Hari Ini
 ### `1. Apa Itu Virtual Environtment dan Kenapa Diperlukan Buat Package Python?`
 
