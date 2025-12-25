@@ -40,3 +40,6 @@ Hal keren lainnya juga meliputi sifat `kolisi` antar komponen yang bisa diaktifk
 Contoh lainnya yang mungkin adalah program:
 - Pybullet
 - Gazebo (agak berat *requirement* spesifikasi komputernya kalau buat satu ini)
+
+## Dokumentasi Singkat Hari Ini 
+![Documentasi Singkat Hasil](Docum.png)
