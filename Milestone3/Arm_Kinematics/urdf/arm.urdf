@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot name="three_cylinders">
+
+  <!-- materials for color reference -->
+  <material name="pink">
+    <color rgba="1 0.094 0.894 1"/>
+  </material>
+
+  <material name="light_green">
+    <color rgba="0.251 1 0.239 1"/>
+  </material>
+
+  <material name="yellow">
+    <color rgba="0.9176 0.9372 0.17254902 1"/>
+  </material>
+
+  <material name="light_blue">
+    <color rgba="0.239 1 0.922 1"/>
+  </material>
+
+  <!-- base cylinder -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.9" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.45"/>
+      <material name = "light_blue"/>
+    </visual>
+  </link>
+
+  <!-- one step above base cylinder and so on-->
+  <link name="cyl_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.7" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.35"/>
+      <material name = "yellow"/>
+    </visual>
+  </link>
+
+  <link name="cyl_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.5" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.25"/>
+      <material name = "light_green"/>
+    </visual>
+  </link>
+
+  <link name="cyl_3">
+    <visual>
+      <geometry>
+        <cylinder length="0.3" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.15"/>
+      <material name = "pink"/>
+    </visual>
+  </link>
+
+  <!-- joint between cylinders -->
+  <joint name="joint_baseTo1" type="revolute">
+    <parent link="base_link"/>
+    <child link="cyl_1"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0 0.9"/>
+    <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+  </joint>
+
+  <joint name="joint_1To2" type="revolute">
+    <parent link="cyl_1"/>
+    <child link="cyl_2"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0 0.7"/>
+    <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+  </joint>
+
+  <joint name="joint_2To3" type="revolute">
+    <parent link="cyl_2"/>
+    <child link="cyl_3"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0 0.5"/>
+    <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+  </joint>
+
+</robot>
