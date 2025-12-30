@@ -6,3 +6,6 @@ Program pythonnya ada di bagian `py_pubsub` lagi, dengan catatan hadirnya fungsi
 digunakan untuk kasus simulasi `leg.urdf`.
 
 ### Buat referensi IK bentuk lainnya ada di milestone sebelumnya
+
+##Sekilas hasil coba program spesial IK :
+![sekilas hasil nyoba IK](docum_6.png)
