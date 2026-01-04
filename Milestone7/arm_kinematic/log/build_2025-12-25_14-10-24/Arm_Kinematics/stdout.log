@@ -1,0 +1,38 @@
+running egg_info
+creating build/Arm_Kinematics/Arm_Kinematics.egg-info
+writing build/Arm_Kinematics/Arm_Kinematics.egg-info/PKG-INFO
+writing dependency_links to build/Arm_Kinematics/Arm_Kinematics.egg-info/dependency_links.txt
+writing entry points to build/Arm_Kinematics/Arm_Kinematics.egg-info/entry_points.txt
+writing requirements to build/Arm_Kinematics/Arm_Kinematics.egg-info/requires.txt
+writing top-level names to build/Arm_Kinematics/Arm_Kinematics.egg-info/top_level.txt
+writing manifest file 'build/Arm_Kinematics/Arm_Kinematics.egg-info/SOURCES.txt'
+reading manifest file 'build/Arm_Kinematics/Arm_Kinematics.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'build/Arm_Kinematics/Arm_Kinematics.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/build/Arm_Kinematics/build
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/build/Arm_Kinematics/build/lib
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/build/Arm_Kinematics/build/lib/Arm_Kinematics
+copying Arm_Kinematics/__init__.py -> /home/tsaqip/ros2_ws/src/Arm_Kinematics/build/Arm_Kinematics/build/lib/Arm_Kinematics
+running install
+running install_lib
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/lib/python3.10/site-packages/Arm_Kinematics
+copying /home/tsaqip/ros2_ws/src/Arm_Kinematics/build/Arm_Kinematics/build/lib/Arm_Kinematics/__init__.py -> /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/lib/python3.10/site-packages/Arm_Kinematics
+byte-compiling /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/lib/python3.10/site-packages/Arm_Kinematics/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/ament_index
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/ament_index/resource_index
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/ament_index/resource_index/packages
+copying resource/Arm_Kinematics -> /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/ament_index/resource_index/packages
+copying package.xml -> /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/Arm_Kinematics
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/Arm_Kinematics/urdf
+copying urdf/arm.urdf -> /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/Arm_Kinematics/urdf
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/Arm_Kinematics/launch
+copying launch/display.launch.py -> /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/Arm_Kinematics/launch
+creating /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/Arm_Kinematics/config
+copying config/rviz_config.rviz -> /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/share/Arm_Kinematics/config
+running install_egg_info
+Copying build/Arm_Kinematics/Arm_Kinematics.egg-info to /home/tsaqip/ros2_ws/src/Arm_Kinematics/install/Arm_Kinematics/lib/python3.10/site-packages/Arm_Kinematics-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/tsaqip/ros2_ws/src/Arm_Kinematics/build/Arm_Kinematics/install.log'

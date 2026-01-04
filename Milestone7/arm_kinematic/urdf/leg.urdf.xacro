@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot name="leg" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find Arm_Kinematics)/urdf/leg.description.xacro"/>
+    <xacro:include filename="$(find Arm_Kinematics)/urdf/leg.ros2_control.xacro"/>
+
+    <xacro:leg_description/>
+    <xacro:leg_ros2_control name="leg_ros2_control" />
+
+</robot>
