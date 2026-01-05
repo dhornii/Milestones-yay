@@ -26,8 +26,8 @@ dibutuhkan buat publish suatu gerakan ke topic itu, bisa dengan launch dulu rviz
 - `ros2 topic list`
 - Harusnya ada `/joint_trajectory_controller/joint_trajectory`
 - `ros2 topic info /joint_trajectory_controller/joint_trajectory`, harusnya di sini subscribernya ada 1 dengan 0 publisher
-- `ros2 interface show /joint_trajectory_controller/joint_trajectory` buat lihat apa aja yang dibutuhkan sama publisher info gerakan joints
-- ada juga `/joint_trajectory_controller/joint_trajectoryPoint` buat nentuin gerakan (FK) dengan masukan putaran radian
+- `ros2 interface show trajectory_msgs/msg/JointTrajectory` buat lihat apa aja yang dibutuhkan sama publisher info gerakan joints
+- ada juga `trajectory_msgs/msg/JointTrajectoryPoint` buat nentuin gerakan (FK) dengan masukan putaran radian
 Selanjutnya ada package buat ngirim informasi gerakan dengan memanfaatkan JointTrajectory + JointTrajectoryPoint
 
 ## `3) leg_point_pub`
