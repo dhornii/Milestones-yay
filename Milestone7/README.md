@@ -1,4 +1,4 @@
-# Milestone 7, 31 Desember 2025 - 2 Januari 2025
+# Milestone 7, 31 Desember 2025 - 2 Januari 2026
 
 ## `1) urdf raw to xacro`
 Edit file urdf jadi `xacro-macro` biar bisa digabung sama `ros2_control`, jadinya ekstensi file di **urdf/** jadi .xacro semua belakangnya. Ros2_control dipakai
