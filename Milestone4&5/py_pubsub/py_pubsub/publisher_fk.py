@@ -46,7 +46,7 @@ class FK_Publisher(Node):
 
         Result_Matrix = FK_3dof(self.l1, self.l2, self.l3, th1, th2, th3)
 
-        x_pos = -float(Result_Matrix[0, 2])
+        x_pos = float(Result_Matrix[0, 2])
         y_pos = 0.0
         z_pos = float(Result_Matrix[1, 2]) + 0.9
 
