@@ -31,7 +31,7 @@ class FK_Publisher(Node):
 
         self.subscription = self.create_subscription(
             JointState,
-            'joint_states',
+            'joint_states',    # subscribe ke topic joint_states buat dapet informasi rotasi (rad) yang diberikan oleh joint_state_publisher_gui
             self.listener_callback,
             10)
         
@@ -40,23 +40,24 @@ class FK_Publisher(Node):
 
     def listener_callback(self, msg):
         
-        th1 = msg.position[0]
+        th1 = msg.position[0] # ambil setiap info rad dari joint_state_publisher_gui, urutannya sesuai gui dari atas ke bawah
         th2 = msg.position[1]
         th3 = msg.position[2]
 
-        Result_Matrix = FK_3dof(self.l1, self.l2, self.l3, th1, th2, th3)
+        Result_Matrix = FK_3dof(self.l1, self.l2, self.l3, th1, th2, th3) # hitung hasil FK dari info di gui-nya
 
-        x_pos = float(Result_Matrix[0, 2])
+        # karena rotasi di sumbu Y, artinya sekarang horizontal adalah sumbu X sementara vertikal adalah sumbu Z
+        x_pos = float(Result_Matrix[0, 2])            # letak posisi horizontal di baris pertama kolom ke-3 matriks
         y_pos = 0.0
-        z_pos = float(Result_Matrix[1, 2]) + 0.9
+        z_pos = float(Result_Matrix[1, 2]) + 0.9      # letak posisi vertikal ada di baris ke-2 kolom ke-3 matriks, ingat ada tambahan 0.9 karena translasi oleh 'base_line'
 
-        pose_msg = Pose()
-        pose_msg.position.x = x_pos
-        pose_msg.position.y = y_pos
-        pose_msg.position.z = z_pos
+        pose_msg = Pose() # bikin objek Pose
+        pose_msg.position.x = x_pos    # isi setiap informasi position objek Pose
+        pose_msg.position.y = y_pos    
+        pose_msg.position.z = z_pos    
 
-        self.publisher_.publish(pose_msg)
-        self.get_logger().info(f'End Effector: X={x_pos:.2f}, Y={y_pos:.2f}, Z={z_pos:.2f}')
+        self.publisher_.publish(pose_msg)    # publish ke topic 'end_effector_pose'
+        self.get_logger().info(f'End Effector: X={x_pos:.2f}, Y={y_pos:.2f}, Z={z_pos:.2f}') # tulis di terminal (tempat node berjalan) buat informasi langsung
         
 def main(args=None):
     rclpy.init(args=args)
