@@ -52,11 +52,11 @@ class IK_listener(Node):
 
             hasil_ik = IK_2dof(self.l1, self.l2, x, z-0.9)
 
-            lower_th1 = -(hasil_ik[0, 0]-np.deg2rad(90))
-            lower_th2 = -(hasil_ik[1, 0])
+            lower_th1 = (hasil_ik[0, 0]-np.deg2rad(90))
+            lower_th2 = (hasil_ik[1, 0])
 
-            upper_th1 = -(hasil_ik[0, 1]-np.deg2rad(90))
-            upper_th2 = -(hasil_ik[1, 1])
+            upper_th1 = (hasil_ik[0, 1]-np.deg2rad(90))
+            upper_th2 = (hasil_ik[1, 1])
 
             self.get_logger().info(f'Pasangan solusi sudut: Lower = [{lower_th1:.2f}, {lower_th2:.2f}] Upper = [{upper_th1:.2f}, {upper_th2:.2f}]')
 
