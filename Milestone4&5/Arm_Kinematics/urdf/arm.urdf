@@ -80,7 +80,7 @@
   <joint name="joint_1To2" type="revolute">
     <parent link="cyl_1"/>
     <child link="cyl_2"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin xyz="0 0 0.7"/>
     <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
   </joint>
@@ -88,7 +88,7 @@
   <joint name="joint_2To3" type="revolute">
     <parent link="cyl_2"/>
     <child link="cyl_3"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin xyz="0 0 0.5"/>
     <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
   </joint>
