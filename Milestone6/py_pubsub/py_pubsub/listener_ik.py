@@ -27,8 +27,9 @@ class IK_listener(Node):
         super().__init__('ik_listener')
 
         self.tf_buffer = Buffer()
-        self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.tf_listener = TransformListener(self.tf_buffer, self) # mantau bagian tf lalu nilainya disimpan di buffer
 
+        # lengan short_arm.urdf yang digunakan untuk perhitungan IK
         self.l1 = 0.7
         self.l2 = 0.5
 
@@ -38,25 +39,26 @@ class IK_listener(Node):
 
     def tf_callback(self):
         try:
-            t = self.tf_buffer.lookup_transform(
-                'base_link',
-                'end_effector',
-                rclpy.time.Time()
+            t = self.tf_buffer.lookup_transform( # listeing ke tf dari Rviz2-nya
+                'base_link',       # hitung dengan dasar jarak dari 'base_link'
+                'end_effector',    # target perhitungan adalah ke 'end_effector' terhadap 'base_link'
+                rclpy.time.Time()  # ambil info pada waktu persis saat itu juga
             )
 
-            x = t.transform.translation.x
+            x = t.transform.translation.x # kita cuma butuh informasi X dan Z saja karena sedang FK atau IK 2 dimensi, sementara rotasi terhadap sumbu Y
             z = t.transform.translation.z
 
             # untuk debugging apakah sudah bisa mendapat info dari tf:
             # self.get_logger().info(f'Posisi End-Effector saat ini: X={x:.2f}, Z={z:.2f}')
 
-            hasil_ik = IK_2dof(self.l1, self.l2, x, z-0.9)
+            hasil_ik = IK_2dof(self.l1, self.l2, x, z-0.9) # ingat transformasi titik vertikalnya dulu (Z) ke bawah karena ada 'base_link' setinggi 0.9
 
-            lower_th1 = -(hasil_ik[0, 0]-np.deg2rad(90))
-            lower_th2 = -(hasil_ik[1, 0])
+            # karena mulainya tegak di awal (ditambahkan 90 derajat), maka hasil untuk sudut pertama dikurangi oleh 90 derajat juga
+            lower_th1 = (hasil_ik[0, 0]-np.deg2rad(90)) # untuk letak jawaban sudutnya bisa dibuka bagian fungsi 'FK_for_RViz2.py`
+            lower_th2 = (hasil_ik[1, 0])
 
-            upper_th1 = -(hasil_ik[0, 1]-np.deg2rad(90))
-            upper_th2 = -(hasil_ik[1, 1])
+            upper_th1 = (hasil_ik[0, 1]-np.deg2rad(90))
+            upper_th2 = (hasil_ik[1, 1])
 
             self.get_logger().info(f'Pasangan solusi sudut: Lower = [{lower_th1:.2f}, {lower_th2:.2f}] Upper = [{upper_th1:.2f}, {upper_th2:.2f}]')
 
