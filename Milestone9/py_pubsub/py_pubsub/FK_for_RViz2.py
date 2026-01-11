@@ -178,16 +178,21 @@ def FK_3dofspec_loky(th1, th2, th3, th_from_base):
     
     T0 = ztrans_3d( # bagian ini parameternya unik untuk setiap kaki tergantung posisi kakinya terhadap base
         th_from_base * np.pi, 
-        0.086603 * np.cos(th_from_base * np.pi), 
-        0.086603 * np.sin(th_from_base * np.pi), 
-        0.08694)
+        0.086603 * np.cos(th_from_base * np.pi), # rotasi dulu buat tetapin posisi X-Y setiap kaki berdasarkan persebaran sudutnya
+        0.086603 * np.sin(th_from_base * np.pi),
+        0.08694)      
+        # misal buat kaki 2 otomatis bakal kegeser bagian Y sejauh 0.08663 dan X sejauh 0 karena kaki 2 letaknya di sepanjang Y positif
 
-    T1 = ztrans_3d(th1, 0, 0, -0.06344)                            
-    T2 = ytrans_3d(-th2, 0.025, 0, 0)                          
-    T3 = ytrans_3d(th3, 0.055, 0, 0)                         
+    T1 = ztrans_3d(th1, 0, 0, -0.06344) # rotasi femur_joint + turun di Z ke lokasi femur_joint                           
+    T2 = ytrans_3d(-th2, 0.025, 0, 0)   # sudutnya negatif karena nilai axis rotasi kebalik, intinya translasi dan rotasi seperti baris atas                 
+
+    # sampai ke tibia:
+    T3 = ytrans_3d(th3, 0.055, 0, 0)
+    
+    # sampai ke end_effector:
     T4 = ytrans_3d(0, 0, 0, -0.071429)                           
 
-    result_matrix = T0 @ T1 @ T2 @ T3 @ T4
+    result_matrix = T0 @ T1 @ T2 @ T3 @ T4 # hasil transformasi dengan awalan di base_link, koordinat 0 0 0 kartesian 3D
 
     return result_matrix[:3, 3]
 
@@ -199,16 +204,19 @@ def IK_3dofspec_loky(x_target, y_target, z_target, th_from_base):
         0.086603 * np.sin(th_from_base * np.pi), 
         0.08694)
 
+    # T1 (di coxa) sekarang mulai dengan translasi aja tanpa rotasi (rotasi 0 radian)
     T1 = ztrans_3d(0, 0, 0, -0.06344) 
 
     inverse = np.linalg.inv(T1) @ np.linalg.inv(T0)
-
+    # intinya adalah mengalikan T1^(-1) @ T0^(-1) ke sumbu kanan kiri agar tereliminasi sehingga bisa dilanjutkan input target X, Y, Z
+    
     new = inverse @ np.array([x_target, y_target, z_target, 1])
     
     x_target_new = new[0]
     y_target_new = new[1]
     z_target_new = new[2]
 
+    # === Dari sini ke bawah sudah sama persis IK yang dulu di leg.urdf ===
     # sudut bagian coxa
     theta_c = np.arctan2(y_target_new, x_target_new)
 
